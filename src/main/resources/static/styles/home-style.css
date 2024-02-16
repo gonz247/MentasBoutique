@@ -1,0 +1,1896 @@
+:root {
+  --font-onest: 'Onest', sans-serif;
+  --font-yeseva: 'Yeseva One', serif;
+  --font-borel: 'Borel', cursive;
+  --color1: #f5e7e9;
+  --color2: #f4afcf;
+  --color3: #a8dae3;
+  --color4: #cab8f2;
+  --color5: #54248f;
+  --big-title-size: clamp(20px, 2.5vw, 60px);
+  /*Con la función clamp se establece un tamaño de fuente que crezca con el tamaño del viewport, pero no se reduzca debajo de un mínimo y no se incremente por encima de un máximo.*/
+  --title-font-size: clamp(14px, 1.8vw, 40px);
+  --text-font-size: clamp(12px, 1.42vw, 30px);
+  --text-font-size-small: clamp(8px, 1.2vw, 20px);
+  --title-font-size-mobile: clamp(20px, 8vw, 35px);
+  --text-popup: clamp(8px, 1.8vw, 20px);
+  --title-popup: clamp(8px, 4vw, 20px);
+
+}
+
+body {
+  margin: 0;
+  background-color: white;
+  font-family: var(--font-onest);
+  /*se asigna para todos los elementos este tipo de letra por default*/
+  width: 100%;
+  height: 100vh;
+  /*100% de la altura de la ventana gráfica.*/
+  overflow-x: hidden;
+  /* se agrego para mejor funcionalidad del carousel */
+}
+
+
+.footer{
+  position: absolute;
+  width: 100% !important;
+  height: 145px !important;
+}
+
+/*A continuación se hará la primera sección de la página de inicio*/
+
+/******************REUTILIZABLES****************************/
+.title {
+  font-size: var(--big-title-size);
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 0;
+  line-height: 1.5;
+  font-family: var(--font-borel);
+}
+
+.text{
+  font-family: var(--font-onest);
+  font-size: var(--text-font-size);
+  margin: 0px 3.63vw;
+}
+.btn--mentas {
+  background-color: var(--color3);
+  
+  border-radius: 1vw;
+  font-family: var(--font-onest);
+  /*debido a que en la clase eslogan se le ponía Borel, aquí se le coloca nuevamente el tipo de letra Onest al btn*/
+
+  font-size: var(--text-font-size);
+  border: 0;
+  height: 4.5vw;
+  width: 13.92vw;
+  /* margin-top: 50px;*/
+}
+
+.btn--mentas:hover {
+  /*este estilo le da un hover al botón*/
+  background-color: var(--color4);
+
+}
+
+
+
+/******************FIN REUTILIZABLES*************************/
+
+
+
+/*PRIMERA SECCIÓN*/
+/*La primera sección está contenida en un div con la clase seccion--uno, esta sección se dividirá en dos partes.
+- La primera parte constituye los elementos de eslogan, btn descrubir, y dos íconos de envíos y pago seguro.
+- La segunda parte constituye solamente la imagen.*/
+
+@media (max-width: 5000px) {
+  .seccion-uno {
+    /*contenedor de toda la primera sección, es decir, de las 2 partes que incluyen a los elementos y la imagen*/
+    display: flex;
+    /*se hace flexible el contenedor*/
+    flex-direction: row;
+    /*Es row para que se muestren las dos partes una después de otra*/
+    background-color: var(--color1);
+    /*de acuerdo con la guía de diseño este color es de fondo*/
+    width: 100%;
+    /*Para que se ajuste al tamaño de la ventana*/
+    padding-top: 65px;
+  }
+
+  /*PRIMERA PARTE*/
+  .seccion-uno__container {
+    /*todo este contenedor será flexible y se buscará en primera instancia que todos los elementos estén centrados y en columna*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0;
+    width: 35%;
+  }
+
+
+  /*El segundo elemento es el botón*/
+
+
+  .btn--mentas-descubrelo {
+    border-radius: 10px;
+    height: clamp(40px, 6.26vw, 160px);
+    width: clamp(150px, 23.5vw, 600px);
+    font-size: var(--title-font-size);
+  }
+
+  /*El tercer elemento son los íconos seguidos de texto*/
+  .seccion-uno__subcontainer {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-around;
+
+  }
+
+
+  #envio,
+  #pago {
+    /*Estos ids son de los contenedores de (ícono + texto) para envío y pago de manera correspondiente*/
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .icon {
+    /*con esta clase se modifica el tamaño de los íconos*/
+    height: clamp(33px, 3.13vw, 60px);
+    width: auto;
+    margin-left: 0.78vw;
+    margin-right: 0.78vw;
+  }
+
+  .texto {
+    /*Esta clase es para los contenedores de envío y pago, que incluyen SOLO los dos textos*/
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .text-bold {
+    font-size: var(--text-font-size);
+  }
+
+  .text-small {
+    font-size: var(--text-font-size-small);
+  }
+
+  /*SEGUNDA PARTE*/
+  /*Esta sección solo incluye la imagen*/
+
+  .imagen--container {
+    width: 65%;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .imagen--banner {
+    width: 100%;
+  }
+
+  /*Responsividad de  PRIMERA SECCIÓN*/
+  /*Para hacer la responsividad se usará la regla-at @media */
+}
+
+@media (max-width: 768px) {
+
+  .btn--mentas-descubrelo {
+    border-radius: 0.78vw;
+    height: clamp(20px, 6.26vw, 160px);
+    width: clamp(75px, 23.5vw, 600px);
+    font-size: var(--title-font-size);
+  }/*MODIFICADO*/
+
+  .icon {
+    /*con esta clase se modifica el tamaño de los íconos*/
+    height: clamp(16px, 3.13vw, 60px);
+    width: auto;
+    margin-left: 0.78vw;
+    margin-right: 0.78vw;
+  }/*MODIFICADO*/
+
+
+  .text-bold {
+    font-size: var(--text-font-size);
+  }/*MODIFICADO*/
+
+  .text-small {
+    display: none;
+    font-size: var(--text-font-size-small);
+  }/*MODIFICADO*/
+
+
+}
+
+/*cierre de media query 768px*/
+
+@media (max-width: 480px) {
+  .seccion-uno {
+    /*contenedor de toda la primera sección, es decir, de las 2 partes que incluyen a los elementos y la imagen*/
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color1);
+    /*de acuerdo con la guía de diseño este color es de fondo*/
+    width: 100%;
+    /*Para que se ajuste al tamaño de la ventana*/
+    height: 100vh;
+  }/*MODIFICADO*/
+
+  /*PRIMERA PARTE*/
+  .seccion-uno__container {
+    /*todo este contenedor será flexible y se buscará en primera instancia que todos los elementos estén centrados y en columna*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+  }/*MODIFICADO*/
+
+  .title--size-big-mobile{
+    font-size: var(--title-font-size-mobile);
+    width: 70%;
+    margin-top: 20%;
+}
+/*UNICO: clase utilizada solo para la responsividad en movil*/
+
+
+
+  .btn--mentas-descubrelo {
+    border-radius: 10px;
+    height: 20vw;
+    width: 56%;
+    font-size: 6.6vw;
+  }/*MODIFICADO*/
+
+
+
+
+
+  .icon {
+    height: clamp(30px, 10vw, 40px);
+    width: auto;
+    margin-left: min(10px, 2.5vw);
+    margin-right: min(10px, 2.5vw);
+  }/*MODIFICADO*/
+
+ 
+
+  .text-bold {
+    font-size: var(--big-title-size);
+    text-align: center;
+  }/*MODIFICADO*/
+
+  .text-small {
+    display: inline;
+    text-align: center;
+    font-size: var(--text-font-size);
+  }/*MODIFICADO*/
+
+
+  .imagen--container {
+    display:none;
+    width: 65%;
+    justify-content: center;
+    align-items: center;
+
+  }/*MODIFICADO*/
+
+  .imagen--banner {
+    display: none;
+    width: 100%;
+  }/*MODIFICADO*/
+
+
+
+}
+
+/*cierre de media query celular 480 px*/
+
+
+
+/*Se procederá a darle estilos a la segunda sección de la página de inicio que se constituye por lo siguiente: 
+  ° Todo contenido dentro de clase .carousel en una etiqueta section
+    - Un contenedor del título "Novedades" con clase .title-container
+    - Un contenedor del carrusel con clase .carousel-container
+      + Botón (se representará por una imagen de flecha) con clase .btn-prev
+      + 3 Contenedores de card con clase .card-container y el primer container tendrá clase .active Cada contenedor tendrá:
+        * Tres contenedores con clase .card y un id #product1, #product2, #product3, según corresponda
+          -- Cada .card estará constituid0 de: imagen (contenida en una etiqueta ancor con clase .card-link) con .img-card, precio (contenido en etiqueta p con .price), producto (contenido en un h4 con .product), descripción (contenido en un p con .description) y botón comprar con clase .btn-buy
+  ° Botón con class .btn-next que contenga una img con clase .arrow-next
+*/
+
+/*SEGUNDA SECCIÓN - CARRUSEL*/
+
+
+
+/*CAROUSEL STYLES*/
+@media (max-width:5000px){
+  .carousel{
+    margin-top: 2vw;
+    height: 40.04vw;
+    margin-bottom: 20px;
+  }
+.carousel-container {
+  box-sizing: border-box;
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.carousel__title{
+  text-indent: 4vw;
+  margin-top: 2vw;
+}
+
+.card-container {
+  display: none;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.card-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  margin: auto;
+  border: solid gray 0px;
+  /* width: -moz-fit-content;
+  width: fit-content; */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  
+}
+
+.img-card {
+  border-radius: 10px;
+  width: clamp(72px, 100%, 300px);
+  max-height: 300px;
+}
+
+.product {
+  font-family: 'Yeseva One', serif;
+  border: 0px;
+  margin: 0vw 0px;
+  text-align: center;
+  font-size: var(--text-font-size);
+}
+
+.description {
+  font-family: 'Yeseva One', serif;
+  border: 0px;
+  margin: 0px;
+  font-size: var(--text-font-size);
+  text-align: center;
+
+}
+
+.price {
+  font-family: var(--font-onest);
+  border: 0px;
+  margin: 0.2vw 0px;
+  font-size: var(--text-font-size);
+}
+
+.btn-buy {
+  padding: min(max(.65vw, 5px), 10px) min(max(1.4vw, 10px), 25px);
+  border: solid 0px black;
+  border-radius: 2px;
+  background-color: var(--color4);
+  margin-top: .2vw;
+  cursor: pointer;
+  font-family: var(--font-yeseva);
+  font-size: min(max(1.3vw, 10px), 18px);
+  color: white;
+}
+
+
+.carousel__btn-next,
+.carousel__btn-next:hover {
+  width: 2vw;
+  height: 5vw;
+  margin-right: 1.8vw;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.arrow-next {
+  transform: rotate(90deg);
+  width: max(20px,1.5vw);
+  height: max(20px,1.5vw);
+}
+
+.carousel__btn-prev,
+.carousel__btn-prev:hover {
+  width: 2vw;
+  height: 5vw;
+  margin-left: 1.8vw;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.arrow-prev {
+  transform: rotate(-90deg);
+  width: max(20px,1.5vw);
+  height: max(20px,1.5vw);
+}
+
+.active {
+  display: flex;
+}
+
+/*REVISARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR*/
+.review {
+  position: fixed;
+  /* top: 300px; */
+  width: 500px;
+  height: 500px;
+}
+
+/*REVISARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR*/
+.review1 {
+  position: fixed;
+  /* top: 300px; */
+  width: 500px;
+  height: 500px;
+}
+
+dialog::backdrop {
+  background: rgba(243, 239, 239, 80%)
+}
+
+.img-rev {
+  width: 200px;
+  height: auto;
+
+}
+
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+
+  }
+}
+@keyframes slideToRigth {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInR {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+
+  }}
+
+.animated-in {
+  animation: slideIn 2s ease-in;
+}
+
+.animated-out {
+  animation: slideToLeft 2s ease-out;
+}
+
+}
+
+.animated-in-p {
+  animation: slideInR 2s ease-in;
+}
+
+.animated-out-p {
+  animation: slideToRigth 2s ease-out;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .carousel{
+    margin-top: 2vw;
+    height: 50.04vw;
+  }
+  .carousel__btn-next,
+  .carousel__btn-next:hover {
+    width: 2vw;
+    height: 5vw;
+    margin-right: 2vw;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0px;
+  }
+  
+  .arrow-next {
+    transform: rotate(90deg);
+    width: max(20px,1.5vw);
+    height: max(20px,1.5vw);
+  }
+  
+  .carousel__btn-prev,
+  .carousel__btn-prev:hover {
+    width: 2vw;
+    height: 5vw;
+    margin-left: 1vw;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0px;
+  }
+  
+  .arrow-prev {
+    transform: rotate(-90deg);
+    width: max(20px,1.5vw);
+    height: max(20px,1.5vw);
+  }
+
+  .img-card {
+    width: max(50px, 100%);
+    height: auto;
+  }
+
+  .product {
+    font-family: 'Yeseva One', serif;
+    border: 0px;
+    margin: 0vw 0px;
+    text-align: center;
+    font-size: var(--text-font-size);
+   
+  }
+
+  .description {
+    font-family: 'Yeseva One', serif;
+    border: 0px;
+    margin: 0px;
+    font-size: var(--text-font-size);;
+    
+  }
+
+  .price {
+    font-family: var(--text-onest);
+    border: 0px;
+    margin: 0.2vw 0px;
+    font-size: var(--text-font-size);;
+  }
+
+  .btn-buy {
+    padding: min(max(.65vw, 3px), 5px) min(max(1.4vw, 5px), 8px);
+    border: solid 0px black;
+    border-radius: 2px;
+
+    margin-top: .2vw;
+    cursor: pointer;
+    font-family: var(--font-yeseva);
+    font-size: min(max(1.3vw, 10px), 8px)
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+  .carousel{
+    margin-top: 2vw;
+    height: 75.04vw;
+  }
+  .carousel__title{
+    font-size: var(--title-font-size-mobile)
+  }
+  /* #product2,
+  #product3 {
+    display: none;
+  } */
+
+  .card {
+    margin: auto;
+    border: solid gray 0px;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+  }/*MODIFICADO*/
+
+  .img-card {
+    width: clamp(80px, 25vw, 120px);
+    height: auto;
+  }/*MODIFICADO*/
+
+  .product {
+    font-family: 'Yeseva One', serif;
+    border: 0px;
+    margin: 0.2vw 0px;
+    max-width: clamp(75px,25vw,83px) ;
+    text-align: center;
+    font-size: max(10px, 2.91vw);
+    line-height: 1.2;
+  }/*MODIFICADO*/
+
+  .description {
+    display: none;
+  }/*MODIFICADO*/
+
+  .price {
+    font-family: var(--font-onest);
+    border: 0px;
+    margin: 0.2vw 0px;
+    font-size: max(10px, 2.91vw);
+  }/*MODIFICADO*/
+
+  .btn-buy {
+    padding: min(max(.65vw, 3px), 5px) min(max(1.4vw, 5px), 8px);
+    border: solid 0px black;
+    border-radius: 2px;
+    margin-top: .2vw;
+    cursor: pointer;
+    font-family: var(--font-yeseva);
+    font-size: min(max(1.3vw, 10px), 8px)
+  }
+}
+
+/*ESTILOS POPUP CAROUSEL*/
+@media only screen and (max-width:5000px){
+  .overlay {
+    
+    position: fixed;
+    
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: black;
+    
+
+  }
+  
+  
+  .modal-info {
+    display: none;
+    width: 700px;
+    gap: 0;
+    text-align: center;
+    background: white;
+    top: 50%;
+    left:50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    margin: 20px;
+    height: 400px;
+    border-radius: 15px;
+
+  }
+  
+  .product--name{
+      text-align: center;
+  }
+  
+  .price{
+      text-align: center;
+      font-size: large;
+      font-weight: 600;
+  }
+  
+  
+  /*Estos botones agregan al carrito y a la compra directa del producto*/
+  .preview--buttons {
+      margin-top: 10px;
+      display: flex;
+      gap: 20px;
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      font-size: clamp(13px, 20%, 100px);
+      width: auto;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-onest);
+  }
+  
+  
+  .cart {
+      background-color: #a8dae3;
+      border-radius: 10px;
+      width: 100px;
+      height: 50px;
+      border: none;
+      font-size: clamp(8px, 1.6vw, 14px);
+  }
+  
+  
+  .buy {
+      background-color: #a8dae3;
+      border-radius: 10px;
+      width: 100px;
+      height: 50px;
+      border: none;
+  }
+  
+  
+  .cart:hover {
+      background-color: #cab8f2;
+      border-radius: 10px;
+  }
+  
+  .buy:hover {
+      background-color: #cab8f2;
+      border-radius: 10px;
+  }
+  
+  #imagen--product {
+      margin-left: 10px;
+      margin-right: 0px;
+      width: clamp(200px, 100%, 800px);
+      position: absolute;
+      top: 15%;
+      left: 5%;
+      max-width: 250px;
+  }
+  
+  #img-product {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+  }
+  
+  .more--info{
+      position: absolute;
+      top: 15%;
+      max-width: 50%;
+      left: 45%;
+      height: clamp(100px, 70%, 800px);
+      text-align: justify;
+  }
+  }
+  
+  @media (max-width: 768px) {
+      .overlay {
+        position: fixed;
+      
+        top: 0;
+        left: 0;
+        min-height: 150vh;
+        width: 100%;
+        display: none;
+     
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: black;
+
+      }
+      
+      
+      .modal-info {
+        display: none;
+        width: clamp(250px, 80%, 600px);
+        gap: 0;
+        text-align: center;
+        background: white;
+        top: clamp(5%, 10%, 25%);
+        top: 50%;
+        left:50%;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        margin: 10px;
+        height: 250px;
+        border-radius:15px;
+
+    
+
+      }
+      
+      .product--name{
+          text-align: center;
+          font-size: var(--title-popup);
+          margin: 0;
+          margin-bottom: 10px;
+      }
+      
+      .product--description, .product--material, .product--type{
+          font-size: var(--text-popup);
+          margin: 0;
+      }
+  
+      .price{
+          text-align: center;
+          font-size: var(--title-popup);
+          font-weight: 300;
+          margin: 0;
+      }
+      
+      
+      /*Estos botones agregan al carrito y a la compra directa del producto*/
+      .preview--buttons {
+          display: flex;
+          gap: 20px;
+          padding: 10px;
+          text-decoration: none;
+          color: black;
+          font-size: clamp(6px, 20%, 50px);
+          width: auto;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--font-onest);
+      }
+      
+      
+      .cart {
+          background-color: #a8dae3;
+          border-radius: 10px;
+          width: 50px;
+          height: 25px;
+          border: none;
+          font-size: clamp(8px, 1.6vw, 14px);
+      }
+      
+      
+      .buy {
+          background-color: #a8dae3;
+          border-radius: 10px;
+          width: 50px;
+          height: 25px;
+          border: none;
+      }
+      
+      
+      .cart:hover {
+          background-color: #cab8f2;
+          border-radius: 10px;
+      }
+      
+      .buy:hover {
+          background-color: #cab8f2;
+          border-radius: 10px;
+      }
+      
+      #imagen--product {
+          margin-left: 10px;
+          margin-right: 0px;
+          width: clamp(100px, 60%, 400px);
+          position: absolute;
+          top: clamp(5%, 25%, 40%);
+          left: clamp(2%, 10%, 25%);
+          max-width: 100px;
+      }
+      
+      #img-product {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+      }
+      
+      .more--info{
+          position: absolute;
+          top: 15%;
+          max-width: 50%;
+          left: 45%;
+          height: clamp(100px, 70%, 800px);
+          text-align: justify;
+      }
+  
+  }
+  
+
+/***************************************************************/
+/*  TERCERA SECCIÓN */
+
+@media only screen and (max-width:5000px){
+
+.tercera--seccion {
+  margin-top: 2vw;
+}
+
+.texto--titulo--tercera {
+  /*Esta clase engloba a el título y descripción de categorías*/
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  margin-bottom: 1vw;
+}
+
+#titulo--categorias {
+  
+  text-indent: 4vw;
+  margin-top: 2vw;
+}
+
+#texto--introduccion {
+  /*Texto descriptivo de la sección*/
+  font-family: var(--font-onest);
+  font-size: var(--title-font-size);
+  margin: 0;
+  text-indent: 4vw;
+  
+}
+
+.container--tarjetas--cuarta {
+  /*Este contenedor es de las dos tarjetas de categorías: profesiones y mascotas*/
+  display: flex;
+  flex-direction: row;
+  /*Para que estén una a lado de la otra*/
+  justify-content: space-around;
+  align-items: center;
+  /*Para que las tarjetas se encuentren en el centro del viewport*/
+
+}
+
+.category-card { /*cambio de nombre*/
+  /*Este contenedor tendrá un texto representativo de la categoría, una imagen, el nombre de la categoría y un texto más detallado de dicha categoría*/
+  display: grid;
+  grid-template-rows: 62% auto; /* 62% for the first row, remaining for the second row */
+  gap: 0px; /* Adjust the gap between rows if needed */
+
+  background-color: var(--color2);
+  /*Es el color de fondo de la tarjeta de la categoría*/
+  border-radius: 1.25vw;
+  width: 44vw;
+  height: 32.12vw;
+  cursor: pointer;
+  
+}
+.category-card__text-image-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  
+  
+}
+.category-card__text-big{
+  margin: 2vw;
+  line-height: 1.3;
+  font-family: var(--font-onest);
+  font-size: clamp(20px, 2.5vw, 100px);
+  font-weight: 800;
+  color: black;
+padding: 0;
+}
+
+.category-card__title{
+  font-family: var(--font-onest);
+  font-size: var(--title-font-size);
+}
+
+.category-card__image {
+  margin: auto;
+  width: 19.79vw;
+  height: 19.79vw;
+  border-radius: 2.3vw;
+  margin-top: 5%;
+}
+
+.category-card__text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  font-family: var(--font-onest);
+  
+}
+
+
+.texto--p {
+  margin: 0 1.1vw;
+  font-family: var(--font-onest);
+  font-size: var(--text-font-size);
+  text-align: justify;
+  
+}
+
+}
+
+/*Responsividad de tercera sección*/
+
+@media (max-width: 768px) {
+  
+  #texto--introduccion {
+    /*Texto descriptivo de la sección*/
+    font-family: var(--font-onest);
+    font-size: var(--text-font-size);
+    margin-top: 0;
+    text-indent: 4vw;
+  } /*MODIFICADO*/
+  
+  .category-card { 
+    display: grid;
+    grid-template-rows: 62% auto; 
+    gap: 0px; 
+  
+    background-color: var(--color2);
+    border-radius: 1.25vw;
+    width: 44vw;
+    height: 36.12vw;
+    
+  }
+
+  .category-card__text-big{
+    margin: 1.5vw;
+    
+    line-height: 1.3;
+    font-family: var(--font-onest);
+    font-size: clamp(12px, 2.7vw, 60px); /*utilice un clamp porque las variables de root no encajan con el tamaña necesario para este texto*/
+  }
+  
+  .category-card__title{
+    font-family: var(--font-onest);
+    font-size: clamps(10px, 1.89vw, 15px);
+  }
+    
+  .texto--p {
+    margin: 0 1.1vw;
+    font-size: clamp(8px,1.59vw,13px);
+    text-align: justify;
+    
+  }
+}/*cierre de media query*/
+@media (max-width: 480px) {
+
+  #titulo--categorias {
+ font-size: var(--title-font-size-mobile);
+  }
+
+  #texto--introduccion {
+    font-size: var(--title-font-size);
+  }
+
+  .container--tarjetas--cuarta {
+    /*Este contenedor es de las dos tarjetas de categorías: profesiones y mascotas*/
+    display: flex;
+    flex-direction: column;
+    gap: 7.5vw;
+    /*Para que estén una a lado de la otra*/
+    align-items: center;
+    justify-content: space-around;
+    /*Para que las tarjetas se encuentren en el centro del viewport*/
+   
+    /*El espacio entre las dos tarjetas variará en un rango de 10 a 180px dependiendo del viewport*/
+  }
+
+ 
+.category-card { 
+  display: grid;
+  grid-template-rows: 62% auto; 
+  gap: 0px; 
+  background-color: var(--color2);
+  border-radius: 15px;
+  width: 80.41vw;
+  height: 55.41vw;
+  
+}
+
+.category-card__text-big{
+  font-size: 4.1vw;
+  font-weight: 800;
+  margin-left: 5.3vw;
+  margin-top:8.09vw;
+  margin-right: 0;
+  margin-bottom: 0;
+  align-self: start;
+  justify-self: left;
+  
+}
+.category-card__text-image-container{
+  display: grid;
+  grid-template-columns: 50% auto;
+  align-items: center;
+  
+  
+}
+.category-card__image{
+  width: 32vw;
+  height: 32vw;
+}
+.category-card__title{
+  font-size: 3.75vw;
+}
+.texto--p{
+  font-size: 2.5vw;
+  margin: 0 3.6vw;
+}
+
+
+
+
+
+
+
+
+
+
+}
+
+/***************************************************************/
+/*CUARTA SECCIÓN*/
+
+
+.info-banner__container {
+  margin-top: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color1);
+  height: 35.71vw;
+  gap: 2.14vw;
+}
+.care-info, .packing-info{
+  display: grid;
+  grid-template-columns: 25% auto;
+  align-items: center;
+  width: 36.3vw;
+  height: 6.4vw;
+  border-radius: 0.83vw;
+  background-color: var(--color2);
+  font-size: var(--title-font-size);
+
+}
+.icon-info {
+  width: 3.75vw;
+  height: auto;
+  justify-self: center;
+  
+}
+dialog:-internal-dialog-in-top-layer{
+  background-color: var(--color1);
+}
+
+.care-info-card, .packing-info-card{
+  font-family: var(--font-onest);
+}
+.care-info-card__btn-close, .care-info-card__btn-close:focus-visible{
+  outline: 0;
+  border: 0;
+  height: 4.5vw;
+  width: 13.92vw;
+}
+
+
+@media only screen and (max-width: 768px){
+  .info-banner__container {
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color1);
+    height: 35.71vw;
+    gap: 2.14vw;
+  }
+
+  .info-banner__title{
+    margin-top: 2vw;
+  }
+
+  .info-banner__text{
+    font-size: max(10px, 1.56vw);
+  }
+  
+  .care-info, .packing-info{
+    display: grid;
+    grid-template-columns: 25% auto;
+    align-items: center;
+    width: 36.3vw;
+    height: 6.4vw;
+    border-radius: 0.83vw;
+    background-color: var(--color2);
+    font-size: clamp(8px, 1.4vw, 20px)
+  
+  }
+  .info-banner__span{
+    /* justify-self: center; */
+    font-size: 1.79vw;
+  }
+  .icon-info {
+    width: 3.75vw;
+    height: auto;
+    justify-self: center;
+    
+  }
+}
+@media only screen and (max-width: 480px){
+  .info-banner__container {
+    margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+    background-color: var(--color1);
+    height: 66.16vw;
+  }
+
+  .info-banner__title{
+    margin-top: 2vw;
+    font-size: var(--title-font-size-mobile);
+  }
+  .info-banner__text{
+    margin: 0 10vw;
+    line-height: 1;
+    font-size: 2.7vw;
+    text-align: justify;
+  }
+  
+  .care-info, .packing-info{
+    display: grid;
+    grid-template-columns: 20% auto;
+    align-items: center;
+    width: 67.7vw;
+    height: 11.45vw;
+    border-radius: 2.9vw;
+    background-color: var(--color2);
+  
+  
+  }
+  .info-banner__span{
+    justify-self: center;
+    font-size: 3.5vw;
+  }
+  .icon-info {
+    width: 6.8vw;
+    height: auto;
+    justify-self: center;
+    
+  }
+  .care-info-card__btn-close{
+    border: 0;
+    height: max(25px, 4.5vw);
+    width: max(50px, 13.92vw);
+  }
+}
+
+/***************************************************************/
+/*QUINTA SECCIÓN*/
+/*Esta sección corresponde a los reviews e incluye cuatro cards*/
+@media only screen and (max-width: 5000px){
+.seccion--quinta {
+margin-top: 5vw;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  margin: 3.125vw;
+}
+
+.imagen--container--reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+}
+
+#imagen--reviews {
+  width: 100%;
+}
+
+.review--quinta--hidden {
+  display: none;
+}
+
+.reviews--quinta {
+  /*Es la card de solo una reseña*/
+  border-radius: 6px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 400ms ease;
+  margin: 0.78vw 0.78vw 2.34vw 0.78vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 21.4vw;
+  height: 31.25vw;
+}
+
+.reviews--quinta:hover {
+  box-shadow: 0px 3px 3.125vw rgba(0, 0, 0, 0.4);
+  transform: translateY(-3%)
+}
+
+#nombre--review--quinta {
+  /*Es el contenedor del texto donde aparecerá el nombre de la persona que dejó el review*/
+  margin: 0.78vw;
+  font-size: var(--title-font-size);
+  align-self: center;
+}
+
+
+.stars--quinta {
+  /*contenedor de todas las estrellas*/
+  display: grid;
+  grid-template-columns: 100%;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  /* gap: 0.5vw; */
+  color: var(--color5);  
+  width: 100%;
+  
+  
+}
+.reviews--quinta .stars--quinta .stars i {
+  color: var(--color5);
+  font-size: 1.6vw;
+}
+
+.container--stars {
+  /*contenedor de cada estrella*/
+  display: flex;
+  flex-direction: row;
+  height: clamp(10px, 2vw, 100px);
+  margin-left: 10px;
+  margin-right: 10px;
+  width: clamp(10px, 2vw, 100px);
+}
+}
+/*RESPONSIVIDAD QUINTA SECCIÓN*/
+
+@media (max-width: 480px) {
+
+  
+  .center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5vw;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 62vw;
+    overflow: hidden;
+    margin: 0%;
+  }
+  
+  .imagen--container--reviews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70%;
+  }
+  
+  #imagen--reviews {
+    width: 100%;
+  }
+  
+  .review--quinta--hidden {
+    display: none;
+  }
+  
+  .reviews--quinta {
+    /*Es la card de solo una reseña*/
+    border-radius: 6px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 400ms ease;
+    /* margin: 0px 5vw 8vw 5vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40.185vw;
+    height: 58.59vw;
+  }
+  
+  .reviews--quinta:hover {
+    box-shadow: 0px 3px 3.125vw rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%)
+  }
+  
+  #nombre--review--quinta {
+    /*Es el contenedor del texto donde aparecerá el nombre de la persona que dejó el review*/
+    margin: 0.78vw;
+    font-size: max(10px, 3vw);
+    align-self: center;
+  }
+  
+  
+  .stars--quinta {
+    /*contenedor de todas las estrellas*/
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    gap: 0.5vw;
+    margin: 0px 0.8vw;
+    width: 100%;
+    
+    /*tomará el ancho del contenedor, siendo el mínimo 10px y el máximo 280px*/
+  }
+  
+  .container--stars {
+    /*contenedor de cada estrella*/
+    display: flex;
+    flex-direction: row;
+    height: clamp(10px, 2vw, 100px);
+    margin-left: 10px;
+    margin-right: 10px;
+    width: clamp(10px, 2vw, 100px);
+  }
+  }
+
+
+
+/*PREVIEWS DE RESEÑAS*/
+@media only screen and (max-width:5000px){
+.products-preview {
+  /*Este contenedor hará que la preview tenga un fondo oscuro*/
+  position: fixed;
+  /*Toda la sección de preview estará en posición fija en la pantalla del navegador*/
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: none;
+  /*Por defecto estará desactivada esta sección, la activación se hace por manipulación del DOM*/
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  /*Es el fondo de la review, es con el fin de centrar la atención del usuario en el contenido de la review*/
+}
+
+.reseñas__title{
+  text-indent: 4vw;
+  margin-top: 2vw;
+}
+.preview {
+  /*Este contenedor es de las cuatro tarjetas de la review*/
+  display: none;
+  text-align: center;
+  background: var(--color1);
+  position: relative;
+  margin: 7vw; /* Reducir el margen */
+  width: 54vw; /* Ajustar el ancho de la tarjeta */
+  height: 40vw; /* Ajustar la altura de la tarjeta */
+  border-radius: 1.2vw; /* Reducir el radio de borde */
+  overflow: hidden;
+}
+
+.preview.active {
+  display: grid;
+  grid-template-columns: 55% auto;
+  /*La primera columna ocupará el ancho necesario para la imagen, y la segunda ocupará el resto del espacio disponible */
+  gap: 0;
+}
+
+
+
+.fa-xmark {
+  position: absolute;
+  top: 1vw;
+  right: 1.5vw;
+  cursor: pointer;
+  color: var(--color5);
+  font-size: 2.3vw;
+  /*Asigna el tamaño al ícono*/
+}
+
+.stars{
+  margin-top: 6px;
+  display: flex;
+  justify-content: left;
+
+}
+.products-preview .preview .stars i {
+  color: var(--color5);
+  font-size: 1.6vw;
+}
+
+
+.products-preview .preview p {
+  font-size: max(8px, 1.2vw);
+  text-align: left;
+  margin: 0;
+}
+
+.buttons {
+  border-top: 1px var(--color5) solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  
+}
+.review-card__product_name{
+  text-align: left;
+  
+  
+}
+
+/*Estos botones son anclas que llevan al carrito y a la compra del producto*/
+.products-preview .preview .buttons a {
+  display: flex;
+  padding: 0.8vw;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2vw;
+  width: 100%;
+  height: 30%;
+  align-items: center;
+  justify-content: center;
+}
+
+.products-preview .preview .buttons a.cart {
+  background-color: #a8dae3;
+  border-radius: 0.8vw;
+  width: 10vw;
+  height: 3vw;
+}
+
+.products-preview .preview .buttons a.buy {
+  background-color: #a8dae3;
+  border-radius: 10px;
+  width: 10vw;
+}
+
+
+.products-preview .preview .buttons a.cart:hover {
+  background-color: #cab8f2;
+  border-radius: 15px;
+}
+
+.products-preview .preview .buttons a.buy:hover {
+  background-color: #cab8f2;
+  border-radius: 15px;
+}
+
+#imagen--preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#img-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.prueba {
+  /* grid-column: 2; */
+  /* Coloca estos elementos en la segunda columna */
+  margin: 1vw;
+  /* Elimina márgenes predeterminados en estos elementos */
+  
+  display: grid;
+  grid-template-rows: 7% 6% 65% auto;
+  flex-direction: column;
+  align-items: top;
+  justify-content: center;
+
+}
+
+.review-card__client-name{
+  font-size: max(10px, 2.2vw);
+  line-height: 1.2;
+  margin:0;
+  padding: 0;
+  justify-self: left;
+  height: 2.3vw;
+}
+}
+
+@media only screen and (max-width:480px){
+  .products-preview {
+    /*Este contenedor hará que la preview tenga un fondo oscuro*/
+    position: fixed;
+    /*Toda la sección de preview estará en posición fija en la pantalla del navegador*/
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    /*Por defecto estará desactivada esta sección, la activación se hace por manipulación del DOM*/
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    /*Es el fondo de la review, es con el fin de centrar la atención del usuario en el contenido de la review*/
+    
+  }
+  
+  .preview {
+    /*Este contenedor es de las cuatro tarjetas de la review*/
+    display: none;
+
+    text-align: center;
+    
+    background: var(--color1);
+    position: relative;
+
+   
+    width: 80vw; /* Ajustar el ancho de la tarjeta */
+    height: 150vw; /* Ajustar la altura de la tarjeta */
+    border-radius: 1.2vw;
+    overflow:hidden;
+
+  }
+  
+  .preview.active {
+    display: grid;
+    grid-template-rows: 65% auto;
+    grid-template-columns: none;
+    /*La primera columna ocupará el ancho necesario para la imagen, y la segunda ocupará el resto del espacio disponible */
+    gap: 0;
+  }
+  
+  .reseñas__title{
+    margin-top: 2vw;
+    font-size: var(--title-font-size-mobile);
+  }
+  
+  
+  .fa-xmark {
+    position: absolute;
+    top: 1vw;
+    right: 1.5vw;
+    cursor: pointer;
+    color: var(--color5);
+    font-size: 5vw;
+    /*Asigna el tamaño al ícono*/
+  }
+  
+  .stars{
+    padding-top: 2px;
+    display:inline-flex;
+  
+  }
+  .products-preview .preview .stars i {
+    color: var(--color5);
+    padding-top: 6px;
+    margin-bottom: 6px;
+    font-size: 2.5vw;
+  }
+  
+  
+  .products-preview .preview p {
+    font-size: max(10px, 3.2vw);
+    text-align: left;
+    margin: 0;
+  }
+  
+  .buttons {
+    margin-top: 8px;
+    border-top: 1px var(--color5) solid;
+    display: block;
+  }
+ 
+  
+  /*Estos botones son anclas que llevan al carrito y a la compra del producto*/
+  .products-preview .preview .buttons a {
+    display: flex;
+    padding: 0.8vw;
+    text-decoration: none;
+    color: black;
+    font-size: 2.4vw;
+    width: 100%;
+    height: 30%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .products-preview .preview .buttons a.cart {
+    margin-top: 6px;
+    background-color: #a8dae3;
+    border-radius: 0.8vw;
+    width: 20vw;
+    height: 6vw;
+  }
+  
+  .products-preview .preview .buttons a.buy {
+    background-color: #a8dae3;
+    border-radius: 10px;
+    width: 10vw;
+  }
+  
+  
+  .products-preview .preview .buttons a.cart:hover {
+    background-color: #cab8f2;
+    border-radius: 15px;
+  }
+  
+  .products-preview .preview .buttons a.buy:hover {
+    background-color: #cab8f2;
+    border-radius: 15px;
+  }
+  
+  #imagen--preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  #img-preview {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .prueba {
+    box-sizing: border-box;
+    /* grid-column: 2; */
+    /* Coloca estos elementos en la segunda columna */
+    margin: 1vw;
+    /* Elimina márgenes predeterminados en estos elementos */
+    padding: 2vw 2vw 0 2vw;
+    display: grid;
+    grid-template-rows: 7% 6% 55% auto;
+    flex-direction: column;
+    align-items: top;
+    justify-content: center;
+  
+  }
+  
+  .review-card__client-name{
+    font-size: max(10px, 3.2vw);
+    line-height: 1.2;
+    margin:0;
+    padding: 0;
+    justify-self: left;
+    height: 2.3vw;
+  }
+}
+
+/***************************************************************/
+/*SEXTA SECCIÓN*/
+
+.seccion--seis {
+  background: linear-gradient(90deg, var(--color2), var(--color1), var(--color1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2vw;
+  height: 16.6vw;
+  width: 100%;
+}
+
+#centro {
+  background-color: #f4afcf;
+  width: 60%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:1vw;
+  border-radius: 5px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.texto--seis {
+  font-size: 2.73vw;
+  margin: 0;
+}
+
+.btn--mentas-descubrelo-small {
+  background-color: #a8dae3;
+  cursor: pointer;
+  border-radius: 1vw;
+  font-family: 'Onest', sans-serif;
+  /*debido a que en la clase eslogan se le ponía Borel, aquí se le coloca nuevamente el tipo de letra Onest al btn*/
+  height: 4.68vw;
+  width: 15.62vw;
+  font-size: 1.56vw;
+  margin: 0;
+  border: 0;
+
+}
+
+
+
+/*Responsividad de  SEXTA SECCIÓN*/
+/*Para hacer la responsividad se usará la regla-at @media */
+
+@media (max-width:480px) {
+
+  /*Para CELULARES, solo se hará esta responsividad ya que, mayor a 480px, el diseño es responsivo en pantalla gracias a flexbox*/
+  .seccion--seis {
+    background: linear-gradient(90deg, var(--color2), var(--color4), var(--color4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44.58vw;
+  }
+
+  #centro {
+    background-color: #f4afcf;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6.8vw;
+
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
+  }
+
+  .texto--seis {
+    font-size: 9.37vw;
+    color: var(--color5);
+  }
+
+  .btn--mentas-descubrelo-small {
+    background-color: #a8dae3;
+    cursor: pointer;
+    border-radius: 2.5vw;
+    font-family: 'Onest', sans-serif;
+    /*debido a que en la clase eslogan se le ponía Borel, aquí se le coloca nuevamente el tipo de letra Onest al btn*/
+    width: 40vw;
+    height:  10.83vw;
+    font-size: 3.56vw;
+    margin: 0;
+    border: 0;
+  
+  }
+}
+
+/*cierre de media query celular 480 px*/

@@ -1,0 +1,276 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+   
+
+
+
+/**Declarando variables de fuentes y color*/
+:root {
+    --font-primary: 'Borel', sans-serif;
+    /*Logo y otros elementos*/
+    --font-secundary: 'Onest', sans-serif;
+    /*Textos*/
+    --font-tertiary: 'Yeseva One', sans-serif;
+    /*Encabezados*/
+    --color-primary: #f5e7e9;
+    --color-secundary: #f4afcf;
+    --color-tertiary: #a8dae3;
+    --color-quaternary: #54248f;
+
+}
+
+.footer{
+    padding-top: 10px;
+    position: absolute;
+    width: 100% !important;
+    height: 155px !important;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: -1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "header header header" 
+    "mensaje mensaje mensaje"
+    "redes formulario formulario"
+    "redes formulario formulario"
+    "redes formulario formulario"
+    "redes formulario formulario"
+    "redes formulario formulario"
+    "footer footer footer";
+
+  
+    text-align: center;
+  
+    
+}
+
+.contenedor{
+    background-color: white;
+}
+.header{
+    grid-area: header;
+}
+
+.mensaje {
+    grid-area: mensaje;
+    font-family: var(--font-primary);
+    font-size: 40px;
+    background: rgb(244, 175, 207);
+    background: linear-gradient(180deg, rgba(244, 175, 207, 1) 2%, rgba(202, 184, 242, 1) 73%, rgba(202, 184, 242, 0) 100%);
+   
+}
+
+.mensaje {
+    display: flex; /* Usa flexbox para el diseño */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    height: 30vh; /* Establece la altura al 100% del viewport */
+}
+
+.message {
+    text-align: center; /* Centra el texto dentro del div */
+}
+
+
+.redes {
+    grid-area: redes;
+    padding-top: 50px;
+}
+
+.formulario{
+    grid-area: formulario;
+    padding-top: 10px;
+    font-family: var(--font-secundary);
+    font-size: 18px;
+}
+
+.formulario h2{
+    font-family: var(--font-secundary);
+    font-size: 30px;
+}
+.formulario {
+    overflow: hidden; /* Evitar que el contenido se desborde del contenedor */
+}
+.encabezado-formulario {
+    color: var(--color-quaternary); /* Cambiar el color del texto a azul */
+    text-align: left; /* Alinear el texto a la izquierda */
+    margin-left: 150px; /* Opcional: agregar un margen izquierdo */
+    margin-bottom: 30px;
+    font-size: var(--font-secundary);
+}
+
+
+::placeholder {
+    color: var(--color-quaternary); /* Color morado para el texto del placeholder */
+}
+
+input[type="text"],
+textarea {
+    border-color: var(--color-quaternary); /* Color morado para los bordes de inputs y textarea */
+    color: var(--color-quaternary); /* Color morado para el texto dentro de inputs y textarea */
+}
+
+label {
+    color: var(--color-quaternary); /* Color morado para los labels */
+}
+
+textarea.form-control {
+    border-color: var(--color-quaternary); /* Cambiar el color del borde del textarea a azul */
+}
+
+
+  /* Estilos para el botón */
+  .formulario .btn-primary-custom {
+    background-color: var(--color-quaternary); /* Color morado para el botón */
+    border-color: var(--color-quaternary); /* Color morado para el borde del botón */
+    color: white; /* Color blanco para el texto del botón */
+    font-family: var(--font-secundary);
+}
+
+
+
+
+.smedia {
+    padding: 0 200px;
+    margin: 1px;
+    font-family: var(--font-primary);
+}
+
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+/* Alinea el logo a la izquierda y ajusta el espacio entre el logo y el texto */
+.logo-row .facebook-logo,
+.logo-row .instagram-logo,
+.logo-row .tiktok-logo {
+    margin-right: 10px;
+}
+
+/* Ajusta el estilo del logo para que no afecte el diseño general */
+.logo-row img {
+    max-width: 40px;
+    /* Ajusta el ancho máximo según sea necesario */
+}
+
+/**Estilos para losgos de redes*/
+/* Estilos logo de Facebook */
+.facebook-logo img {
+    height: 30px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.facebook-logo img:hover {
+    transform: scale(1.2);
+}
+
+.facebook-logo img {
+    cursor: pointer;
+}
+
+/* Estilos logo de Instagram */
+.instagram-logo img {
+    height: 30px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.instagram-logo img:hover {
+    transform: scale(1.2);
+}
+
+.instagram-logo img {
+    cursor: pointer;
+}
+
+/* Estilos de logo de Tik Tok */
+.tiktok-logo img {
+    height: 30px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.tiktok-logo img:hover {
+    transform: scale(1.2);
+}
+
+.tiktok-logo img {
+    cursor: pointer;
+}
+
+
+.formulario {
+    grid-area: formulario;
+    height: auto;
+}
+
+.footer{
+    grid-area: footer;
+}
+a img {
+    width: 100px;
+    height: 40px;
+    float: left;
+    margin-right: 10px; 
+}
+.small{
+   
+    height: 40px;
+    float: left;
+    margin-right: 10px; 
+}
+
+.contenedor a {
+    text-decoration: none;
+}
+
+  /**Responsividad*/
+  /* Tablets */
+  @media (max-width: 768px) {
+    .contenedor {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: -1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "header header"
+        "mensaje mensaje"
+        "formulario formulario"
+        "formulario formulario"
+        "formulario formulario"
+        "formulario formulario"
+        "redes redes"
+        "footer footer";
+    }
+    
+  }
+  
+  /* Smartphone */
+  @media (max-width: 480px) {
+    .contenedor {
+      grid-template-columns: 1fr;
+      grid-template-rows: -1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+        "header"
+        "mensaje"
+        "formulario"
+        "formulario"
+        "formulario"
+        "formulario"
+        "redes"
+        "footer";
+    }
+  }
+  
