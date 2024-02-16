@@ -124,7 +124,7 @@ function popupConfirmacion() {
         
             localStorage.clear();
             sessionStorage.clear();
-            window.location.href = "../../home.html";    
+            window.location.href = "../../index.html";    
         
 
     });

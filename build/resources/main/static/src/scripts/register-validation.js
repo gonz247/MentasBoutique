@@ -45,7 +45,7 @@ const form = document.getElementById('register-form');
           crearUsuario();
           
 
-          window.location.href = "../../home.html"
+          window.location.href = "../../index.html"
         }
 
           form.classList.add('was-validated');

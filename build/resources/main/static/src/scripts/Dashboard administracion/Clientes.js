@@ -7,6 +7,7 @@ async function getClients() {
 
 async function showUsers(){
     await getClients();
+    console.log(clientsList);
 // Get a reference to the table element
 const table = document.getElementById('clientsTable');
 const tbody= table.querySelector('tbody')
@@ -16,7 +17,7 @@ clientsList.forEach(client => {
     const row = document.createElement('tr');
 
     // Create table data cells for each attribute of the client
-    Object.values(client).forEach(value => {
+    Object.values(client).slice(0, 5).forEach(value => {
         const cell = document.createElement('td');
         cell.textContent = value;
         row.appendChild(cell);
@@ -71,3 +72,4 @@ function createModal() {
 }
 
 }
+showUsers();

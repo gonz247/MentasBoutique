@@ -42,6 +42,24 @@ aside{
     flex-direction: column;
     align-items: center;
 }
+.close{ /*ESTO ES NUEVO*/
+    position: relative;
+    top: 100%;
+    left: 30%;
+    border-radius: 10px;
+    width: 100px;
+    background-color: #a8dae3;
+    border: none;
+    height: 50px;
+    font-family: var(--font-onest);
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+}
+
+.close:hover{
+    background-color: var(--color1);
+}
 
 .acordeon{
     background-color: var(--color4);
@@ -164,6 +182,9 @@ a{
         justify-content: center;
     }
     
+    .close{ /*ESTO SE AGREGÓ */
+        left: 10%;
+    }
     .encabezado{
         display: flex;
         flex-direction: column;
