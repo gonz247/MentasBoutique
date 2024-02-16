@@ -31,7 +31,7 @@ form.addEventListener('submit', (event) => {
                     console.log('Email:', data.email);
                     errorMessage.classList.add('d-none');
                     setTimeout(() => {
-                        window.location.href = "../../home.html";
+                        window.location.href = "../../index.html";
                     }, 2000);
                 } else {
 

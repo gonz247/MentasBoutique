@@ -1,9 +1,12 @@
-let clientsList = [{ "id_user": 1, "first_name": "John", "last_name": "Doe", "phone_number": "994653241", "email": "john.doe@example.com" },
-{ "id_user": 2, "first_name": "Jane", "last_name": "Smith", "phone_number": "9876543210", "email": "jane.smith@example.com" },
-{ "id_user": 3, "first_name": "Alice", "last_name": "Johnson", "phone_number": "5551112233", "email": "alice.johnson@example.com" },
-{ "id_user": 4, "first_name": "Bob", "last_name": "Anderson", "phone_number": "8887774444", "email": "bob.anderson@example.com" },
-{ "id_user": 5, "first_name": "Eva", "last_name": "Rodriguez", "phone_number": "1112223333", "email": "eva.rodriguez@example.com" }]
+let clientsList = [];
+async function getClients() {
+  const response = await fetch("https://mentasboutique.onrender.com/admin/users");
+  const data = await response.json();
+  clientsList = data;
+}
 
+async function showUsers(){
+    await getClients();
 // Get a reference to the table element
 const table = document.getElementById('clientsTable');
 const tbody= table.querySelector('tbody')
@@ -65,4 +68,6 @@ function createModal() {
       </div>
     `;
     return modal;
+}
+
 }

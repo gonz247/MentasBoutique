@@ -199,6 +199,7 @@ table{
     padding: 20px;
     height: auto;
     border-radius: 5px;
+    overflow: scroll;
 }
 
 .alinearEdit{

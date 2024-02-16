@@ -1,49 +1,19 @@
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
 
-const form = document.querySelector(".needs-validation")
-const successMessage = document.getElementById('successMessage');
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
 
-form.addEventListener('submit', async event => {
-    event.preventDefault();
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
 
-    if (!form.checkValidity()) {
-      event.stopPropagation();
-    } else {
-    
-      saveData();
-      form.innerHTML=` <div id="successMessage" style="display: block;">
-      <p>¡Envío exitoso! Gracias por tu mensaje.</p>
-    </div>`
-
-    }
-
-    form.classList.add('was-validated');
-  }, false);
-
-
-const messageData = {
-    name:"",
-    lastName:"",
-    mail:"",
-    message:"",
-
-}
-
-const saveData = () =>{
-    const name = document.getElementById("name").value;
-    const lastName = document.getElementById("lastName").value;
-    const mail = document.getElementById("mail").value;
-    const message = document.getElementById("message").value;
-
-    messageData.name = name
-    messageData.lastName = lastName
-    messageData.mail = mail
-    messageData.message = message
-
-    console.log(messageData);
-
-    let jsonMessageData = JSON.stringify(messageData);
-    console.log(jsonMessageData);
-}
-
-
-
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
